@@ -1,0 +1,23 @@
+[
+  {
+    "_id": { "$oid": "01234567890123456789abcd" },
+    "name": "defaultPlayer",
+    "dateCreated": { "$date": "2016-03-15T00:00:00.000Z" }
+  },
+
+  {
+    "_id": { "$oid": "5787a9b4cc4917adfb8b7e55" },
+    "name": "Red",
+    "dateCreated": { "$date": "2016-03-15T00:00:00.000Z" }
+  },
+
+  {
+    "_id": { "$oid": "5787a9b4dfe917adfb8b7e55" },
+    "name": "Black",
+    "dateCreated": { "$date": "2016-03-15T00:00:00.000Z" }
+  }
+
+
+
+
+]
