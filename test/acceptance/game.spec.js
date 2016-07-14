@@ -98,4 +98,7 @@ describe('games', () => {
     });
 
   });
+  describe('post /games/:id/move', () => {
+    
+  });
 });

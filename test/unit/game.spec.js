@@ -55,5 +55,131 @@ describe('game', () => {
         done();
       });
     });
+    describe('#move', () => {
+      it('should allow move - red piece', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 2, y: 6 }, redPlayer.id, { x: 3, y: 5 }, (err) => {
+          expect(err).to.be.undefined;
+          expect(d.board[3][5].toString()).to.equal(redPlayer._id.toString());
+          expect(d.board[2][6]).to.be.null;
+          done();
+        });
+      });
+      it('should allow move - black piece', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 5, y: 3 }, blackPlayer.id, { x: 4, y: 4 }, (err) => {
+          expect(err).to.be.undefined;
+          expect(d.board[4][4].toString()).to.equal(blackPlayer._id.toString());
+          expect(d.board[5][3]).to.be.null;
+          done();
+        });
+      });
+      it('should not allow move - no from piece', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 0, y: 1 }, redPlayer.id, { x: 1, y: 1 }, (err) => {
+          expect(err.message).to.equal('no piece at from location');
+          done();
+        });
+      });
+      it('should not allow move - not players piece from piece', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 0, y: 0 }, blackPlayer.id, { x: 1, y: 1 }, (err) => {
+          expect(err.message).to.equal('piece does not belong to player');
+          done();
+        });
+      });
+      it('should not allow move - piece exists in to location', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 0, y: 0 }, redPlayer.id, { x: 1, y: 1 }, (err) => {
+          expect(err.message).to.equal('destination square already contains piece');
+          done();
+        });
+      });
+      it('should not allow move - invalid red move x', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 1, y: 3 }, redPlayer.id, { x: 3, y: 1 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid red move y', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 1, y: 3 }, redPlayer.id, { x: 2, y: 5 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid red move y', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 1, y: 3 }, redPlayer.id, { x: 2, y: 3 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid red move corner', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 0, y: 0 }, redPlayer.id, { x: 0, y: 8 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid black move x', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 7, y: 1 }, blackPlayer.id, { x: 5, y: 2 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid black move y', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 7, y: 1 }, blackPlayer.id, { x: 6, y: 1 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+      it('should not allow move - invalid black move y', (done) => {
+        const redPlayer = new Player({ name: 'red' });
+        const blackPlayer = new Player({ name: 'black' });
+        const d = new Game();
+        d.newGame(redPlayer._id, blackPlayer._id, () => {});
+        d.move({ x: 6, y: 2 }, blackPlayer.id, { x: 5, y: 0 }, (err) => {
+          expect(err.message).to.equal('invalid move');
+          done();
+        });
+      });
+    });
   });
 });
