@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-expressions, no-underscore-dangle, max-len, new-cap */
 import express from 'express';
 import Game from '../models/game';
 import Player from '../models/player';
 import newGameValidator from '../validators/games/newGameValidator';
+import moveValidator from '../validators/games/moveValidator';
 // import playerBodyValidator from '../validators/players/body';
 const router = module.exports = express.Router();
 
@@ -29,7 +31,7 @@ router.post('/', newGameValidator, (req, res) => {
             const g = new Game();
             g.newGame(redPlayerId, blackPlayerId, () => {
               g.save(() => {
-                  res.send({ board: g.board });
+                res.send({ board: g.board });
               });
             });
           }
@@ -37,4 +39,21 @@ router.post('/', newGameValidator, (req, res) => {
       }
     });
   }
+});
+
+router.put('/:id/move', moveValidator, (req, res) => {
+  Game.findById(req.params.id, (error, game) => {
+    if (!game) {
+      res.status(400).send({ messages: 'game not found' });
+    }
+
+    game.move(res.locals.from, res.locals.playerId, res.locals.to, (err2) => {
+      if (err2) {
+        res.status(400).send({ error });
+      }
+      game.save(() => {
+        res.send({ board: game.board });
+      });
+    });
+  });
 });

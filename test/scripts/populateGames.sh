@@ -1,1 +1,1 @@
-mongoimport --jsonArray --drop --db $DB --collection games
+mongoimport --jsonArray --drop --db $DB --collection games --file ../data/games.json

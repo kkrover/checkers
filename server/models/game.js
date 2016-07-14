@@ -67,6 +67,7 @@ function isValidBlackMove(from, to) {
 gameSchema.methods.move = function (from, playerId, to, cb) {
   const fromPiece = getPieceAt(this.board, from.x, from.y);
   const toPiece = getPieceAt(this.board, to.x, to.y);
+
   if (fromPiece === null) {
     return cb(new Error('no piece at from location'));
   } else if (fromPiece.toString() !== playerId.toString()) {
@@ -77,7 +78,6 @@ gameSchema.methods.move = function (from, playerId, to, cb) {
     if (!isValidRedMove(from, to)) {
       return cb(new Error('invalid move'));
     }
-
     setSquare(this.board, playerId, to.x, to.y);
     setSquare(this.board, null, from.x, from.y);
     return cb();

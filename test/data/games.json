@@ -1,0 +1,9 @@
+[
+  {
+    "_id": { "$oid": "01234567890123456789abcd" },
+    "board": [[{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null],[null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" }],[{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null,{ "$oid": "5787f691b92e2aa9449268bc" },null],[null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null],[null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" }],[{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null],[null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" },null,{ "$oid": "5787f691b92e2aa9449268bd" }]],
+    "dateCreated": { "$date": "2016-03-15T00:00:00.000Z" },
+    "redPlayer": { "$oid": "5787f691b92e2aa9449268bc" },
+    "blackPlayer": { "$oid": "5787f691b92e2aa9449268bd" }
+  }
+]
