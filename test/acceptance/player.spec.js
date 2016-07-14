@@ -7,11 +7,11 @@ const cp = require('child_process');
 const Player = require('../../dst/models/player');
 
 describe('players', () => {
-  // beforeEach((done) => {
-  //   cp.execFile(`${__dirname}/../scripts/populatePlayers.sh`, { cwd: `${__dirname}/../scripts` }, () => {
-  //     done();
-  //   });
-  // });
+  beforeEach((done) => {
+     cp.execFile(`${__dirname}/../scripts/populatePlayers.sh`, { cwd: `${__dirname}/../scripts` }, () => {
+       done();
+     });
+  });
 
   describe('Post /players', () => {
     it('should add a player', (done) => {
