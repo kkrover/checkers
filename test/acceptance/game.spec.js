@@ -23,6 +23,7 @@ describe('games', () => {
         expect(err).to.be.null;
         expect(rsp.status).to.equal(200);
         expect(rsp.body.board).to.be.ok;
+        expect(rsp.body.gameId).to.be.ok;
         done();
       });
     });

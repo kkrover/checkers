@@ -183,3 +183,14 @@ describe('game', () => {
     });
   });
 });
+//     describe('#jump', () => {
+//       it('should allow jump - red piece', (done) => {
+//         const redPlayer = new Player({ name: 'red' });
+//         const blackPlayer = new Player({ name: 'black' });
+//         const d = new Game();
+//         d.newGame(redPlayer._id, blackPlayer._id, () => {});
+//         d.move({ x: 5, y: 3 }, blackPlayer.id, { x: 6, y: 4 }, () => {});
+//       });
+//     });
+//   });
+// });

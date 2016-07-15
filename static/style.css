@@ -1,0 +1,21 @@
+<style>
+  tr{
+    min-width: 100px;
+  }
+  td{
+    width: 100px;
+    height: 100px
+  }
+  tr:nth-child(odd) td:nth-child(odd){
+    background-color: yellow
+  }
+  tr:nth-child(odd) td:nth-child(even){
+    background-color: purple
+  }
+  tr:nth-child(even) td:nth-child(odd){
+    background-color: purple
+  }
+  tr:nth-child(even) td:nth-child(even){
+    background-color: yellow
+  }
+</style>

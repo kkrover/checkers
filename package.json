@@ -2,7 +2,7 @@
   "name": "checkers",
   "version": "1.0.3",
   "scripts": {
-    "dev": "DB=checkers-dev-db LEVEL=silly PORT=3333 nodemon dst/server.js"
+    "dev": "DB=checkers-dev-db LEVEL=silly PORT=4444 nodemon dst/server.js"
   },
   "author": "Henry & John",
   "license": "MIT",

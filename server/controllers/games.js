@@ -31,7 +31,7 @@ router.post('/', newGameValidator, (req, res) => {
             const g = new Game();
             g.newGame(redPlayerId, blackPlayerId, () => {
               g.save(() => {
-                res.send({ board: g.board });
+                res.send({ gameId: g._id, board: g.board });
               });
             });
           }
